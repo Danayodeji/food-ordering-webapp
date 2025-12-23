@@ -1,3 +1,4 @@
+// Asset imports (images used across the UI)
 import basket_icon from './basket_icon.png'
 import logo from './logo.png'
 import header_img from './header_img.png'
@@ -60,6 +61,10 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 
+/**
+ * `assets` — small UI images used by components (logo, icons, etc.).
+ * Use `assets.<name>` in JSX, e.g. <img src={assets.logo} />
+ */
 export const assets = {
     logo,
     basket_icon,
@@ -116,6 +121,21 @@ export const menu_list = [
         menu_image: menu_8
     }]
 
+/*
+ * `food_list` — local product dataset for development.
+ * Each item should include these fields:
+ *  - `_id` (string): unique id, e.g. "1"
+ *  - `name` (string): product display name
+ *  - `price` (number): numeric price used in totals
+ *  - `image` (import): image import defined above
+ *  - `description` (string): short text
+ *  - `category` (string): used for filtering
+ *
+ * If you add a new product:
+ * 1) Add the image to `src/assets/` and import it at the top.
+ * 2) Add an object to `food_list` with the fields above.
+ * 3) Use the product `_id` when calling `addToCart(_id)`.
+ */
 export const food_list = [
     {
         _id: "1",

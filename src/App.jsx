@@ -12,11 +12,15 @@ const App = () => {
 
   const [showLogin, setShowLogin] = useState(false)
 
+  // `showLogin` toggles the login modal.
+  // We pass `setShowLogin` into `Navbar` so the header can open the modal.
   return (
     <>
-   {showLogin?<LoginPopUp setShowLogin={setShowLogin}/>:<></>}  {/* if show login is true, it returns the popup else it returns the fragment */}
+      {showLogin ? <LoginPopUp setShowLogin={setShowLogin} /> : <></>}  {/* render login modal when requested */}
       <div className="app">
-       <Navbar setShowLogin = {setShowLogin} /> {/* add in the nav, then go to the nav component to distructure it */}
+        {/* Navbar receives setter so it can trigger the login popup */}
+        <Navbar setShowLogin={setShowLogin} />
+        {/* Routes: add pages under `src/pages` and register them here */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Card />} />

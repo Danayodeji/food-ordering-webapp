@@ -35,29 +35,34 @@ const PlaceOrder = () => {
       {/* right side  */}
 
       <div className="place-order-right">
-        <div className="cart-total">
+          <div className="cart-total">
           <h2>Cart Total</h2>
 
           <div>
+            {/* Subtotal (computed from StoreContext.getTotalCartAmount()) */}
             <div className="cart-total-details">
               <p>Subtotal</p>
               <p>₦{getTotalCartAmount()}</p>
             </div>
             <hr />
 
+            {/* Delivery fee (plain): currently a flat ₦2,000 when you have items.
+              To change the fee, edit this file. For a dynamic fee, replace the
+              hard-coded value with a prop or a value from your backend. */}
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>₦{getTotalCartAmount()===0?0:2000}</p>
+              <p>₦{getTotalCartAmount() === 0 ? 0 : 2000}</p>
             </div>
             <hr />
 
+            {/* Total = subtotal + delivery fee */}
             <div className="cart-total-details">
               <b>Total</b>
-              <b>₦{getTotalCartAmount()===0?0:getTotalCartAmount() + 2000}</b>
+              <b>₦{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2000}</b>
             </div>
           </div>
 
-          <button >
+          <button>
             PROCEED TO PAYMENT
           </button>
         </div>

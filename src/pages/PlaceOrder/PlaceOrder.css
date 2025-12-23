@@ -1,9 +1,10 @@
 .place-order {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 50px;
-  margin-top: 100px;
+    /* Checkout layout: left = form, right = cart total */
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 50px;
+    margin-top: 100px;
 }
 .place-order-left {
     width: 100%;
@@ -18,9 +19,11 @@
     margin-bottom: 15px;
     width: 100%;
     padding: 10px;
-    border: 1px solid #c5c5c5;
+    border: 1px solid var(--muted);
     border-radius: 4px;
-    outline-color: tomato;
+    outline-color: var(--primary);
+    background: var(--surface);
+    color: var(--text);
 }
 .place-order-left .multi-fields{
     display: flex;

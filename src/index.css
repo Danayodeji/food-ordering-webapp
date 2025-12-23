@@ -8,8 +8,38 @@
   scroll-behavior: smooth;
 }
 
+
+
+/* Theme guide:
+   - To change the accent color used everywhere, edit `--primary`.
+   - To change the dark theme colors, edit the values inside
+     `[data-theme='dark']`.
+   - Use variables like `var(--text)` and `var(--surface)` in component
+     CSS so they follow the current theme automatically.
+*/
+:root{
+  --bg: #ffffff;       /* page background (light) */
+  --surface: #ffffff;  /* card / surface backgrounds */
+  --text: #121318;     /* main text color */
+  --muted: #49557e;    /* secondary text / muted elements */
+  --primary: tomato;   /* accent color (buttons, highlights) */
+  --social-bg: var(--primary); /* background for social icons in light mode */
+}
+
+[data-theme='dark']{
+  --bg: #0b1220;       /* dark page background */
+  --surface: #0f1724;  /* dark card / surface */
+  --text: #e6eef8;     /* text on dark backgrounds */
+  --muted: #b8c2d6;    /* muted text on dark */
+  --primary: #ff8a00;  /* accent for dark mode */
+  --social-bg: rgba(255,255,255,0.06); /* subtle bg for icons in dark mode */
+}
+
 body {
   min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .25s ease, color .25s ease;
 }
 
 a {

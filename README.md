@@ -66,6 +66,26 @@ npm run preview
 - To change currency or delivery fee, update `PlaceOrder.jsx` and presentation components that format prices.
 - To persist cart across reloads, add localStorage logic inside `Storecontext.jsx`.
 
+## Recent changes and developer notes
+
+- Theme toggle: a persistent light/dark toggle is available in the header. It stores the preference in `localStorage` under the key `theme` and switches CSS variables by adding `data-theme="dark"` to the document root. See `src/index.css` (CSS variables) and `src/components/Navbar/Navbar.jsx` (toggle).
+- CSS variables: colors are centralized in `src/index.css` (`--bg`, `--surface`, `--text`, `--muted`, `--primary`). Component styles were updated to use these variables so dark mode remains readable.
+- Place order fee: `PlaceOrder.jsx` currently applies a flat delivery fee of ₦2,000 when subtotal &gt; 0. To change this behavior, edit the fee logic in `src/pages/PlaceOrder/PlaceOrder.jsx`.
+- Local product data: the app uses `src/assets/assets.js` (`food_list`) as a local dataset for development. Keep the `_id` and `price` fields if switching to an API.
+- Bug fix: added missing `import React` in `src/context/Storecontext.jsx` to resolve a runtime error observed during development.
+
+Developer pointers (where to look)
+- App bootstrap & providers: `src/main.jsx`
+- Routes & layout: `src/App.jsx`
+- Shared state (cart/products): `src/context/Storecontext.jsx` — helpers: `addToCart`, `removeFromCart`, `getTotalCartAmount`
+- Local product data & assets: `src/assets/assets.js` (`food_list`, `assets`)
+- Theme variables: `src/index.css` (`:root` and `[data-theme='dark']`)
+- Theme toggle UI: `src/components/Navbar/Navbar.jsx` and `src/components/Navbar/Navbar.css`
+
+Recommended dev tooling
+- React DevTools (browser extension): https://react.dev/link/react-devtools
+
+
 ## Contributing
 - Follow existing component patterns and keep styles colocated in component folders.
 - Run `npm run dev` and verify the flows: add items, open `/cart`, and place an order at `/order`.

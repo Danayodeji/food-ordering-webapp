@@ -1,4 +1,5 @@
 .login-popup{
+    /* Full-screen overlay behind the login modal */
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -7,10 +8,11 @@
     display: grid;
 }
 .login-popup-container{
+    /* Modal card (centered) */
     place-self: center;
     width: max(23vw, 330px);
-    color: #808080;
-    background-color: white;
+    color: var(--muted);
+    background-color: var(--surface);
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -23,7 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;
+    color: var(--text);
 }
 .login-popup-title img{
     width: 16px;
@@ -36,16 +38,18 @@
 }
 .login-popup-inputs input{
     outline: none;
-    border: 1px solid #c9c9c9;
+    border: 1px solid var(--muted);
     padding: 10px;
     border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
 }
 .login-popup-container button{
     border: none;
     padding: 10px;
     border-radius: 4px;
-    color: white;
-    background-color: tomato;
+    color: var(--surface);
+    background-color: var(--primary);
     font-size: 15px;
     cursor: pointer;
 }
@@ -59,7 +63,7 @@
     margin-top: 5px;
 }
 .login-popup p span{
-    color: tomato;
+    color: var(--primary);
     font-weight: 500;
     cursor: pointer;
 }
