@@ -24,8 +24,9 @@
     /* small toggle button that switches data-theme on <html> */
     display: inline-grid;
     place-items: center;
-    width: 40px;
-    height: 36px;
+    /* width: 40px;
+    height: 36px; */
+    padding: 5px 10px;
     border-radius: 8px;
     border: 1px solid rgba(0,0,0,0.08);
     background: transparent;
@@ -113,5 +114,9 @@
     .navbar-right button{
         padding: 6px 15px;
         font-size: 14px;
+    }
+    .navbar .theme-toggle{
+        position: static;
+        transform: none;
     }
 }
