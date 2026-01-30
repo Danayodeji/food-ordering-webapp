@@ -18,9 +18,9 @@
     animation: fadeIn 3s;
 }
 .header-contents h2{
-    font-weight: 600;
+    font-weight: 800;
     color: white;
-    font-size: max(4.5vw, 27px);
+    font-size: max(4.5vw, 35px);
 }
 .header-contents p{
     color: white;
@@ -43,7 +43,7 @@
 }
 @media (max-width: 750px) {
     .header-contents{
-        max-width: 65%;
+        max-width: 85%;
     }
     .header-contents p{
         display: none;
