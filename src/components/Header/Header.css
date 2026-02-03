@@ -1,54 +1,198 @@
-.header{
-    height: 34vw;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.header {
+    height: 40vw;
     margin: 30px auto;
     background-image: url('/header_img.png');
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     position: relative;
-    background-repeat: no-repeat ;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
-.header-contents{
+
+/* Animated gradient overlay for dynamic feel */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 68, 0, 0.4) 0%, 
+        rgba(255, 107, 53, 0.3) 50%, 
+        rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+}
+
+/* Subtle pattern overlay for texture */
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 1;
+}
+
+.header-contents {
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    gap: 1.5vw;
-    max-width: 50%;
-    bottom: 10%;
+    align-items: flex-start;
+    gap: 2vw;
+    max-width: 55%;
+    bottom: 12%;
     left: 6vw;
-    animation: fadeIn 3s;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    padding: 3vw;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
 }
-.header-contents h2{
+
+.header-contents h2 {
     font-weight: 800;
     color: white;
-    font-size: max(4.5vw, 35px);
+    font-size: max(5vw, 40px);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0;
 }
-.header-contents p{
-    color: white;
-    font-size: max(1vw, 13px);
+
+.header-contents p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: max(1.2vw, 16px);
+    line-height: 1.7;
+    font-weight: 400;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
-.header-contents button{
+
+.header-contents button {
     border: none;
-    color: #747474;
-    font-weight: 500;
-    padding: 1vw 2.3vw;
-    background-color: white;
-    font-size: max(1vw, 13px);
+    color: white;
+    font-weight: 700;
+    padding: 1.2vw 3vw;
+    background: linear-gradient(135deg, #ff4400 0%, #ff6b35 100%);
+    font-size: max(1.1vw, 15px);
     border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 68, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 0.5vw;
 }
-/* media query */
+
+/* Button shine effect */
+.header-contents button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.5s;
+}
+
+.header-contents button:hover::before {
+    left: 100%;
+}
+
+.header-contents button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 68, 0, 0.5);
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+}
+
+.header-contents button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Media queries */
 @media (max-width: 1050px) {
-    .header-contents{
-        max-width: 45%;
+    .header-contents {
+        max-width: 50%;
+        padding: 2.5vw;
     }
 }
+
 @media (max-width: 750px) {
-    .header-contents{
-        max-width: 100%;
+    .header {
+        height: 50vw;
+        border-radius: 15px;
+        margin: 20px auto;
     }
-    .header-contents p{
+    
+    .header-contents {
+        max-width: 90%;
+        padding: 6vw;
+        gap: 3vw;
+        left: 5%;
+        bottom: 8%;
+    }
+    
+    .header-contents h2 {
+        font-size: max(6vw, 28px);
+    }
+    
+    .header-contents p {
+        font-size: max(3vw, 14px);
+    }
+    
+    .header-contents button {
+        padding: 3vw 6vw;
+        font-size: max(3vw, 14px);
+        margin-top: 2vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        height: 60vw;
+    }
+    
+    .header-contents {
+        max-width: 85%;
+        padding: 5vw;
+    }
+    
+    .header-contents p {
         display: none;
     }
-}
-.header-contents button{
-    padding: 2vw 4vw;
 }

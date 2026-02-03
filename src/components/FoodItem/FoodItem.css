@@ -2,16 +2,27 @@
     /* Card for a single food item */
     width: 100%;
     margin: auto;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px #00000015;
-    transition: 0.3s;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: fadeIn 1s;
     background: var(--surface);
     color: var(--text);
+    overflow: hidden;
+}
+
+.food-item:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 .food-item-image{
     width: 100%;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 20px 20px 0px 0px;
+    transition: transform 0.4s ease;
+}
+
+.food-item:hover .food-item-image{
+    transform: scale(1.05);
 }
 .food-item-info{
     padding: 20px;    
@@ -48,12 +59,21 @@
     position: relative;
 }
 .food-item-img-container .add{
-    width: 35px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     bottom: 15px;
     right: 15px;
     cursor: pointer;
     border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 99, 71, 0.4);
+    background: white;
+}
+
+.food-item-img-container .add:hover{
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 6px 16px rgba(255, 99, 71, 0.5);
 }
 .food-item-counter{
     position: absolute;

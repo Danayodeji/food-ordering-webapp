@@ -3,6 +3,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .navbar{
+    background: rgba(11, 18, 32, 0.95);
 }
 .navbar .logo{
     width: 150px;
@@ -10,9 +20,37 @@
 .navbar-menu{
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
     color: var(--muted);
     font-size: 18px;
+}
+
+.navbar-menu li{
+    cursor: pointer;
+    position: relative;
+    padding: 8px 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu li:hover{
+    color: var(--primary);
+}
+
+.navbar-menu li::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.navbar-menu li:hover::after{
+    width: 100%;
 }
 .navbar-right{
     display: flex;
@@ -38,17 +76,21 @@
 .theme-toggle:hover{ background: rgba(0,0,0,0.04) }
 
 .navbar button{
-    background: transparent;
+    background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
     font-size: 16px;
-    color: var(--muted);
-    border: 1px solid var(--primary);
-    padding: 10px 30px;
+    color: white;
+    border: none;
+    padding: 12px 32px;
     border-radius: 50px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
 }
+
 .navbar button:hover{
-    background-color: rgba(0,0,0,0.04);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 99, 71, 0.4);
 }
 .navbar .active{
     padding-bottom: 2px;

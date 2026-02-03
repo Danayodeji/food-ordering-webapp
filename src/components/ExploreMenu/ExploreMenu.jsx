@@ -8,6 +8,10 @@ const ExploreMenu = ({category, setCategory}) => {
         <h1>Explore Our Menu</h1>
         <p className='explore-menu-text'>Delicious food delivered to your doorstep</p>
         <div className="explore-menu-list">
+            <div onClick={()=>setCategory("All")} className="explore-menu-list-item">
+                <img className={category === "All" ? "active" : ""} src="https://img.icons8.com/fluency/96/000000/list.png" alt="All" />
+                <p>All</p>
+            </div>
             {menu_list.map((item, index)=>{
                 return(
                     <div onClick={()=>setCategory(prev => prev === item.menu_name ? "All" : item.menu_name)} key={index} className="explore-menu-list-item">

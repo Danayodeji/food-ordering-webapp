@@ -1,14 +1,26 @@
 .footer{
     /* Footer styles — uses surface/text variables for theme support */
     color: var(--muted);
-    background-color: var(--surface);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 20px 8vw ;
+    padding: 20px 8vw;
     padding-top: 80px;
     margin-top: 100px;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    position: relative;
+}
+
+.footer::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
 }
 .footer-content{
     display: grid;
@@ -27,6 +39,27 @@
     list-style: none;
     margin-bottom: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    padding-left: 0;
+    position: relative;
+}
+
+.footer-content-left li:hover, .footer-content-right li:hover, .footer-content-center li:hover{
+    color: var(--primary);
+    padding-left: 8px;
+}
+
+.footer-content-left li::before, .footer-content-right li::before, .footer-content-center li::before{
+    content: '→';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.footer-content-left li:hover::before, .footer-content-right li:hover::before, .footer-content-center li:hover::before{
+    left: -5px;
+    opacity: 1;
 }
 .footer-content-right h2, .footer-content-center h2{
     color: var(--text);
@@ -37,9 +70,16 @@
     /* make icons readable on both light and dark backgrounds by
        placing them on a small circular background */
     background: var(--social-bg);
-    padding: 8px;
+    padding: 10px;
     border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-social-icons img:hover{
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 .footer hr{
     width: 100%;
