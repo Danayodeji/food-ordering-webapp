@@ -50,7 +50,7 @@
 }
 
 .explore-menu-list-item:first-child img{
-    background-color: tomato;
+    background-color: transparent;
     padding: 15px;
 }
 .explore-menu-list-item p{
